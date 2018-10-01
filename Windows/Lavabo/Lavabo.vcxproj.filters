@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="src\Hub">
+      <UniqueIdentifier>{ba5f316b-7270-47d8-93f0-7ce43da3aa72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Common">
+      <UniqueIdentifier>{3394d1a6-8041-4765-9bb4-c56a59cf9bf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Program">
+      <UniqueIdentifier>{50da53e8-75f0-4cf2-b127-c870c37879ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Program\ViewDisplay2D">
+      <UniqueIdentifier>{aaf9e755-db77-488b-ad57-fa0abf15410a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Program\Template">
+      <UniqueIdentifier>{556733fc-0595-4592-adb5-08568a857c0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Program\ViewDisplay3D">
+      <UniqueIdentifier>{9c75780d-c5b3-4b87-8333-498c7e342723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Program\ViewDisplay2D_3D">
+      <UniqueIdentifier>{16785521-71db-4639-9286-8f0da94a2651}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Hub\MainWindow.cpp">
+      <Filter>src\Hub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Hub\MainContent.cpp">
+      <Filter>src\Hub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Hub\MainCaption.cpp">
+      <Filter>src\Hub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Hub\HomeWidget.cpp">
+      <Filter>src\Hub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Hub\ProgramButton.cpp">
+      <Filter>src\Hub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Program\Program.ProgramRegistry.cpp">
+      <Filter>src\Program</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Program\Template\Program.Template.cpp">
+      <Filter>src\Program\Template</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Program\ViewDisplay2D\Program.ViewDisplay2D.cpp">
+      <Filter>src\Program\ViewDisplay2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\ViewDisplay2D.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Program\ViewDisplay3D\Program.ViewDisplay3D.cpp">
+      <Filter>src\Program\ViewDisplay3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\Shader3D.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\Model3D.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\LoadObj.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\ViewDisplay3D.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\Transformation3D.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\EulerAngle.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\EulerSet.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Program\ViewDisplay2D_3D\Program.ViewDisplay2D_3D.cpp">
+      <Filter>src\Program\ViewDisplay2D_3D</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="..\..\src\Hub\MainWindow.h">
+      <Filter>src\Hub</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\src\Hub\MainContent.h">
+      <Filter>src\Hub</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\src\Hub\MainCaption.h">
+      <Filter>src\Hub</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\src\Hub\HomeWidget.h">
+      <Filter>src\Hub</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\src\Hub\ProgramButton.h">
+      <Filter>src\Hub</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\src\Program\Template\Program.Template.h">
+      <Filter>src\Program\Template</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\src\Program\ViewDisplay2D\Program.ViewDisplay2D.h">
+      <Filter>src\Program\ViewDisplay2D</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\src\Common\ViewDisplay2D.h">
+      <Filter>src\Common</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\src\Program\ViewDisplay3D\Program.ViewDisplay3D.h">
+      <Filter>src\Program\ViewDisplay3D</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\src\Common\ViewDisplay3D.h">
+      <Filter>src\Common</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\src\Program\ViewDisplay2D_3D\Program.ViewDisplay2D_3D.h">
+      <Filter>src\Program\ViewDisplay2D_3D</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\Program\Program.AllPrograms.h">
+      <Filter>src\Program</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Program\Program.ProgramRegistry.h">
+      <Filter>src\Program</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\Shader3D.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\Model3D.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\LoadObj.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\Transformation3D.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\EulerAngle.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\EulerSet.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

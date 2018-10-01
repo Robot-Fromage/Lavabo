@@ -1,0 +1,309 @@
+/*
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////// Debug
+*/
+
+
+#debug_widget
+{
+    background: transparent;
+}
+
+
+/*
+////////////////////////////////////////////////////////
+//////////////////////////////////////////// Main Panels
+*/
+
+
+#MainCaption_TitleBackground
+{
+    background-image: url("resources/media/css/img/TitleBackground_image.png");
+    border: none;
+}
+
+#MainCaption_CaptionBackground
+{
+    background-color: rgba( 8, 10, 12, 1 );
+    border: none;
+}
+
+#MainContent_LeftWidget
+{
+    background-image: url("resources/media/css/img/TitleBackground_image.png");
+    border: none;
+}
+
+#MainContent_StackedWidget
+{
+    background-color: rgba( 25, 30, 34, 1 );
+}
+
+#MainContent_StackedWidget
+{
+    background-color: rgba( 25, 30, 34, 1 );
+}
+
+#MainContent_BotWidget
+{
+    background-color: rgba( 127, 127, 127, 1 );
+}
+
+
+/*
+////////////////////////////////////////////////////////
+///////////////////////////////////////////////  BtnHome
+*/
+
+
+#MainCaption_BtnHome
+{
+    background-image: url("resources/media/css/img/btn-home.png");
+    border: none;
+}
+
+#MainCaption_BtnHome:hover
+{
+    background-image: url("resources/media/css/img/btn-home-hover.png");
+    border: none;
+}
+
+#MainCaption_BtnHome:selected
+{
+    background-image: url("resources/media/css/img/btn-home.png");
+    border: none;
+}
+
+
+/*
+////////////////////////////////////////////////////////
+/////////////////////////////////////////////  LeftList
+*/
+
+
+#MainContent_LeftList
+{
+    alternate-background-color: rgba( 0, 0, 0, 0.1 );
+    background-color:transparent;
+    border:none;
+    show-decoration-selected: 1; /* make the selection span the entire width of the view */
+}
+
+
+#MainContent_LeftList::item {
+    border: none;
+    padding-left: 10px;   
+}
+
+#MainContent_LeftList::text {
+    left: 10px;
+}
+
+#MainContent_LeftList::item:selected {
+    background: rgba( 0, 0, 0, 0.5 );
+    border:none;
+}
+
+#MainContent_LeftList::item:selected:active {
+    border:none;
+}
+
+
+/*
+////////////////////////////////////////////////////////
+/////////////////////////////////////////////  ScrollBar
+*/
+
+
+QScrollBar:horizontal {
+    border: 1px solid rgb(80,80,80);
+	border-radius:2px;
+    background: rgb(10,10,10);
+    height: 15px;
+    margin: 0px 22px 0 22px;
+	padding:1px;
+	
+	margin-bottom:1px;
+}
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background: none;
+}
+
+QScrollBar::handle:horizontal {
+    background: rgb(100,100,100);
+	border-radius:2px;
+    min-width: 20px;
+}
+
+QScrollBar::handle:horizontal:hover {
+	background: rgb(0,127,255);
+}
+
+
+QScrollBar::add-line:horizontal {
+    /*background: rgb(60,60,60);*/
+	image:url(resources/media/css/img/arrowRight.png);
+	background:transparent;
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:horizontal:hover {
+	image:url(resources/media/css/img/arrowRightHover.png);
+}
+
+QScrollBar::sub-line:horizontal {
+    /*background: rgb(60,60,60);*/
+	image:url(resources/media/css/img/arrowLeft.png);
+	background:transparent;
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal:hover {
+	image:url(resources/media/css/img/arrowLeftHover.png);
+}
+
+
+
+
+QScrollBar:vertical {
+    border: 1px solid rgb(80,80,80);
+	border-radius:2px;
+    background: rgb(10,10,10);
+    width: 15px;
+    margin: 22px 0 22px 0;
+	padding:1px;
+	
+	margin-right:1px;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}
+
+QScrollBar::handle:vertical {
+	background: rgb(100,100,100);
+	border-radius:2px;
+    min-height: 20px;
+}
+
+QScrollBar::handle:vertical:hover {
+	background: rgb(0,170,255);
+}
+
+QScrollBar::add-line:vertical {
+	image:url(resources/media/css/img/arrowDown.png);
+	background:transparent;
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical:hover {
+	image:url(resources/media/css/img/arrowDownHover.png);
+}
+
+QScrollBar::sub-line:vertical {
+	image:url(resources/media/css/img/arrowUp.png);
+	background:transparent;
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical:hover {
+	image:url(resources/media/css/img/arrowUpHover.png);
+}
+
+
+/*
+////////////////////////////////////////////////////////
+////////////////////////////////////////////  HomeWidget
+*/
+
+#HomeWidget_ScrollArea
+{
+    border: none;
+    background: rgb( 105, 46, 6 );
+}
+
+#HomeWidget_ScrollArea
+{
+    background: transparent;
+}
+
+#HomeWidget_ContentsWrapper
+{
+    background: transparent;
+}
+
+#HomeWidget_Contents
+{
+    background: transparent;
+}
+
+
+/*
+////////////////////////////////////////////////////////
+/////////////////////////////////////////  ProgramButton
+*/
+
+
+#ProgramButton
+{
+    border-radius: 3px;
+}
+
+#ProgramButton_TextLabel
+{
+    color: white;
+}
+
+#ProgramButton_Overlay
+{
+    border-radius: 3px;
+    background: transparent;
+}
+
+#ProgramButton_Overlay:hover
+{
+    background: rgba( 255, 255, 255, 0.2 );
+    border: 1px solid rgba( 255, 255, 255, 0.4 );
+}
+
+
+/*
+////////////////////////////////////////////////////////
+//////////////////////////////  Program_OpenGL_W_Overlay
+*/
+
+#Program_OpenGL_W_Overlay_Btn0
+{
+    background: rgb( 0, 127, 255 );
+    border-radius: 8px;
+}
+
+
+
+/*
+////////////////////////////////////////////////////////
+/////////////////////////////////////////  QGraphics****
+*/
+
+
+QGraphicsView
+{
+    background: black;
+    border: none;
+}
+
+
+QGraphicsScene
+{
+    background: black;
+    border: none;
+}
