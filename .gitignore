@@ -271,3 +271,4 @@ reschecksum.txt
 Windows/Lavabo/resources/*
 Windows/Lavabo/Lib/*
 Windows/Lavabo/GeneratedFiles/*
+resources/monaco-editor/*
