@@ -11,7 +11,7 @@ chgcolor %CHEADER%
 ECHO //////////
 ECHO %0: START
 :::::::::::::::
-:: Init Lavabo Dev Env Variables
+:: Init Project Dev Env Variables
 CALL _initprojectenv.bat || goto :error
 :::::::::::::::
 

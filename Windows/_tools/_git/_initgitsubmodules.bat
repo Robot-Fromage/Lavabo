@@ -11,7 +11,7 @@ chgcolor %CHEADER%
 ECHO //////////
 ECHO %0: START
 :::::::::::::::
-:: Init Lavabo Dev Env Variables
+:: Init Project Dev Env Variables
 CALL _initprojectenv.bat || goto :error
 :::::::::::::::
 
@@ -21,11 +21,11 @@ PUSHD "%CD%"
 
 :::::::::::::::
 :: Checking changes & warning before issuing git operation
-CALL "%LAVABO_WIN_TOOLS_GIT_DIR%\_checkgitstatus.bat" || goto :error
+CALL "%PROJECT_WIN_TOOLS_GIT_DIR%\_checkgitstatus.bat" || goto :error
 
 :::::::::::::::
-:: CD To Lavabo Repository Root
-CD %LAVABO_ROOT%
+:: CD To Project Repository Root
+CD %PROJECT_ROOT%
 
 :::::::::::::::
 :: Running Submodules init & update recursively, output enabled

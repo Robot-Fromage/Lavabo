@@ -28,8 +28,8 @@ ECHO help.bat               ... Display help
 ECHO prebuild.bat           ... Copy resources in Core if needed before build
 ECHO quick_clean.bat        ... Clean deploy and VisualStudio files but keeps dependancies
 ECHO README.txt             ... Display info
-ECHO setup.bat              ... Full setup of Lavabo environment
-ECHO updatex.bat            ... Update a specific Spark Extlib ( prompted ) and reinstall
+ECHO setup.bat              ... Full setup of Project environment
+ECHO updatex.bat            ... Update a specific FUEL Extlib ( prompted ) and reinstall
 ECHO _tools                 ... Batch framework tools
 
 :::::::::::::::

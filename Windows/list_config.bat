@@ -1,0 +1,15 @@
+@ECHO OFF
+SET "OUT_BUILD_CONFIG="
+setlocal EnableDelayedExpansion
+SET "LOCAL_BUILD_CONFIG="
+IF EXIST "%~dp0buildconfig.ini" (
+	FOR /f "delims=" %%A IN ('TYPE "%~dp0buildconfig.ini"') DO (
+	IF "!LOCAL_BUILD_CONFIG!" neq "" SET "LOCAL_BUILD_CONFIG=!LOCAL_BUILD_CONFIG!;"
+	SET "LOCAL_BUILD_CONFIG=!LOCAL_BUILD_CONFIG!%%A"
+	)
+)
+(
+	endlocal
+	SET OUT_BUILD_CONFIG=%LOCAL_BUILD_CONFIG%
+)
+ECHO %OUT_BUILD_CONFIG%

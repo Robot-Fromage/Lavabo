@@ -1,59 +1,32 @@
 :::::::::::::::
 :: SETUP.BAT
 :::::::::::::::
+:: INIT SHELL
 @ECHO OFF
-:::::::::::::::
-:: Init Shell
 CALL "%~dp0_tools\_initprojectshell.bat"
-:::::::::::::::
-:: HEADER
 chgcolor %CHEADER%
 ECHO //////////
 ECHO %0: START
+PUSHD "%CD%"
 :::::::::::::::
-
-:::::::::::::::
-:: Init BoltExtlibs before anything
-SETLOCAL
-CD "%~dp0"
-chgcolor %CGIT%
-@ECHO ON
-git submodule update --init
-@ECHO OFF
-ENDLOCAL
-
-:::::::::::::::
-:: Init Lavabo Dev Env Variables
+:: INIT ENV
 CALL _initprojectenv.bat || goto :error
 :::::::::::::::
 
-:::::::::::::::
-:: Backup
-PUSHD "%CD%"
-
-:::::::::::::::
-:: SHUT ASK
-SET SILENT_ASK=1
-
-:::::::::::::::
-:: Display README & Ask User Before Continue
+:: INFO
 chgcolor %CTEXT%
-TYPE "%~dp0README.txt" & CALL _ask_confirm.bat || goto :error
+TYPE "%~dp0README.txt"
 
-:::::::::::::::
-:: Build Lavabo Extlibs Libraries
-CALL "%LAVABO_WIN_TOOLS_SETUP_DIR%\_buildextlibs.bat" || goto :error
+:: BUILD AND INSTALL
+CALL "%FUEL_BUILD_WIN_DIR%\buildall.bat" "%PROJECT_BUILD_CONFIG%" || goto :error
+CALL "%PROJECT_WIN_TOOLS_SETUP_DIR%\_install_project.bat" || goto :error
+CALL "%PROJECT_WIN_TOOLS_SETUP_DIR%\_install_ext_res.bat" || goto :error
 
-:::::::::::::::
-:: Install Lavabo Extlibs Libraries
-CALL "%LAVABO_WIN_TOOLS_SETUP_DIR%\_install_project.bat" || goto :error
-CALL "%LAVABO_WIN_TOOLS_SETUP_DIR%\_install_ext_res.bat" || goto :error
-
-:::::::::::::::
-:: Reaching End of the Script
+:: END SCRIPT
 GOTO :success
 
 :::::::::::::::
+:: ERROR
 :error
 POPD
 chgcolor %CERROR%
@@ -64,6 +37,7 @@ PAUSE
 EXIT /B 1
 
 :::::::::::::::
+:: SUCCESS
 :success
 POPD
 chgcolor %CSUCCESS%
@@ -72,4 +46,3 @@ ECHO //////////
 chgcolor %CRESET%
 PAUSE
 EXIT /B 0
-

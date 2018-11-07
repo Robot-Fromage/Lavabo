@@ -11,36 +11,50 @@ chgcolor %CHEADER%
 ECHO //////////
 ECHO %0: START
 :::::::::::::::
-:: Init Lavabo Dev Env Variables
+:: Init Project Dev Env Variables
 CALL _initprojectenv.bat || goto :error
 :::::::::::::::
 
 :::::::::::::::
+:: PARSE BUILD CONFIG
+SET "OUT_BUILD_CONFIG="
+setlocal EnableDelayedExpansion
+SET "LOCAL_BUILD_CONFIG="
+IF EXIST "%~dp0buildconfig.ini" (
+	FOR /f "delims=" %%A IN ('TYPE "%~dp0buildconfig.ini"') DO (
+	IF "!LOCAL_BUILD_CONFIG!" neq "" SET "LOCAL_BUILD_CONFIG=!LOCAL_BUILD_CONFIG!;"
+	SET "LOCAL_BUILD_CONFIG=!LOCAL_BUILD_CONFIG!%%A"
+	)
+)
+(
+	endlocal
+	SET OUT_BUILD_CONFIG=%LOCAL_BUILD_CONFIG%
+)
+
+:::::::::::::::
 :: Display Info
 chgcolor %CTEXT%
-ECHO Update specific libs from spark extlibs and fast reinstall.
+ECHO Update specific libs from FUEL extlibs and fast reinstall.
 ECHO You can pass multiple values separated with ';'
-ECHO Possible values: "SFML;tinyxml2;glew;glm;cpython;Rivet"
+ECHO Possible values:
+CALL "%FUEL_BUILD_WIN_DIR%\list.bat" || goto :error
+ECHO Although build config is:
+ECHO %OUT_BUILD_CONFIG%
 ECHO An empty input just does reinstall.
 
 :::::::::::::::
 :: Ask User
 chgcolor %CRESET%
 set /p SENDCOMMAND=":"
-SET "SENDCOMMAND=%SENDCOMMAND%;NO_CLEAN_BY_EMPTY"
-
-:::::::::::::::
-:: Init repo & Checking changes & warning before issuing git operation
-CALL "%LAVABO_WIN_TOOLS_GIT_DIR%\_initgitsubmodules.bat" || goto :error
 
 :::::::::::::::
 :: Build
-CALL "%SPARK_BUILD_WIN_DIR%\buildall.bat" "%SENDCOMMAND%" || goto :error
+CALL "%FUEL_BUILD_WIN_DIR%\buildall.bat" "%SENDCOMMAND%" || goto :error
 
 :::::::::::::::
 :: Install
-CALL "%LAVABO_WIN_TOOLS_SETUP_DIR%\_install_project.bat" || goto :error
-CALL "%LAVABO_WIN_TOOLS_SETUP_DIR%\_install_ext_res.bat" || goto :error
+CALL "%PROJECT_WIN_TOOLS_SETUP_DIR%\_install_project.bat" || goto :error
+CALL "%PROJECT_WIN_TOOLS_SETUP_DIR%\_install_ext_res.bat" || goto :error
 
 :::::::::::::::
 :: Reaching End of the Script

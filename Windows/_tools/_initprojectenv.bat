@@ -28,29 +28,43 @@ if "%WINDOWS_VERSION%" == "6.0" SET "WINDOWS_VERSION=Vista"
 chgcolor %CRESET%
 ECHO [WINDOWS_VERSION] = "%WINDOWS_VERSION%"
 
-:: Init Lavabo Env Paths
-:: Lavabo Paths
-chgcolor %CLAVABO%
+:: Init Project Env Paths
+:: Project Paths
+chgcolor %CPROJECT%
 ::  | Pseudo Funk     | Var Name                    | Relative Path
-call:makeAbsolutePath LAVABO_ROOT                   "%~dp0..\..\"
-call:makeAbsolutePath LAVABO_WIN_DIR                "%LAVABO_ROOT%\Windows"
-call:makeAbsolutePath LAVABO_WIN_TOOLS_DIR          "%LAVABO_ROOT%\Windows\_tools"
-call:makeAbsolutePath LAVABO_WIN_TOOLS_SETUP_DIR    "%LAVABO_ROOT%\Windows\_tools\_setup"
-call:makeAbsolutePath LAVABO_WIN_TOOLS_GIT_DIR      "%LAVABO_ROOT%\Windows\_tools\_git"
-call:makeAbsolutePath LAVABO_WIN_TOOLS_QT_DIR       "%LAVABO_ROOT%\Windows\_tools\_qt"
-call:makeAbsolutePath LAVABO_WIN_TOOLS_MSVC_DIR     "%LAVABO_ROOT%\Windows\_tools\_msvc"
-call:makeAbsolutePath LAVABO_WIN_TOOLS_PREBUILD_DIR "%LAVABO_ROOT%\Windows\_tools\_prebuild"
-call:makeAbsolutePath LAVABO_SRC_DIR                "%LAVABO_ROOT%\src"
-call:makeAbsolutePath LAVABO_RESOURCES_DIR          "%LAVABO_ROOT%\resources"
+call:makeAbsolutePath PROJECT_ROOT                   "%~dp0..\..\"
+call:makeAbsolutePath PROJECT_WIN_DIR                "%PROJECT_ROOT%\Windows"
+call:makeAbsolutePath PROJECT_WIN_TOOLS_DIR          "%PROJECT_ROOT%\Windows\_tools"
+call:makeAbsolutePath PROJECT_WIN_TOOLS_SETUP_DIR    "%PROJECT_ROOT%\Windows\_tools\_setup"
+call:makeAbsolutePath PROJECT_WIN_TOOLS_GIT_DIR      "%PROJECT_ROOT%\Windows\_tools\_git"
+call:makeAbsolutePath PROJECT_WIN_TOOLS_QT_DIR       "%PROJECT_ROOT%\Windows\_tools\_qt"
+call:makeAbsolutePath PROJECT_WIN_TOOLS_MSVC_DIR     "%PROJECT_ROOT%\Windows\_tools\_msvc"
+call:makeAbsolutePath PROJECT_WIN_TOOLS_PREBUILD_DIR "%PROJECT_ROOT%\Windows\_tools\_prebuild"
+call:makeAbsolutePath PROJECT_SRC_DIR                "%PROJECT_ROOT%\src"
+call:makeAbsolutePath PROJECT_RESOURCES_DIR          "%PROJECT_ROOT%\resources"
+call:makeAbsolutePath PROJECT_PROJECT_DIR            "%PROJECT_ROOT%\Windows\Lavabo"
 
-call:makeAbsolutePath LAVABO_PROJECT_DIR            "%LAVABO_ROOT%\Windows\Lavabo"
+SET BUILDCONFIG_FILE="%PROJECT_ROOT%\Windows\buildconfig.ini"
+
+:::::::::::::::
+:: INIT FUEL
+IF NOT EXIST "%PROJECT_ROOT%\fuel\.git" (
+    SETLOCAL
+    CD "%PROJECT_ROOT%"
+    chgcolor %CGIT%
+    @ECHO ON
+    git submodule update --init fuel
+    @ECHO OFF
+    ENDLOCAL
+)
+:::::::::::::::
 
 :: Extlib Paths
-chgcolor %CSPARK%
-call:makeAbsolutePath SPARK_ROOT                    "%LAVABO_ROOT%\Spark\"
-call:makeAbsolutePath SPARK_BUILD_DIR               "%SPARK_ROOT%\_build"
-call:makeAbsolutePath SPARK_BUILD_WIN_DIR           "%SPARK_ROOT%\_build\Windows"
-call:makeAbsolutePath SPARK_BUILD_WIN_TOOLS_DIR     "%SPARK_ROOT%\_build\Windows\_tools"
+chgcolor %CFUEL%
+call:makeAbsolutePath FUEL_ROOT                    "%PROJECT_ROOT%\FUEL\"
+call:makeAbsolutePath FUEL_BUILD_DIR               "%FUEL_ROOT%\_build"
+call:makeAbsolutePath FUEL_BUILD_WIN_DIR           "%FUEL_ROOT%\_build\Windows"
+call:makeAbsolutePath FUEL_BUILD_WIN_TOOLS_DIR     "%FUEL_ROOT%\_build\Windows\_tools"
 
 :::::::::::::::
 :: Init MSVC Env Paths
@@ -104,6 +118,21 @@ ECHO [QT_QMAKE_EXE] %CHECK_PATH_PREFIX% %QT_QMAKE_EXE%
 :: Append QtBinDir to PATH
 ECHO [QT_BIN_DIR] has been added to the PATH.
 SET "PATH=%PATH%;%QT_BIN_DIR%;"
+
+:: PARSE BUILD CONFIG
+SET "PROJECT_BUILD_CONFIG="
+SETLOCAL EnableDelayedExpansion
+SET "LOCAL_BUILD_CONFIG="
+IF EXIST "%BUILDCONFIG_FILE%" (
+	FOR /F "delims=" %%A IN ( 'TYPE "%BUILDCONFIG_FILE%"' ) DO (
+		IF "!LOCAL_BUILD_CONFIG!" NEQ "" SET "LOCAL_BUILD_CONFIG=!LOCAL_BUILD_CONFIG!;"
+		SET "LOCAL_BUILD_CONFIG=!LOCAL_BUILD_CONFIG!%%A"
+	)
+)
+(
+	ENDLOCAL
+	SET PROJECT_BUILD_CONFIG=%LOCAL_BUILD_CONFIG%
+)
 
 :: DEF GUARD
 SET _INIT_PROJECT_ENV_HH=1

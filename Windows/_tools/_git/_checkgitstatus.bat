@@ -11,7 +11,7 @@ chgcolor %CHEADER%
 ECHO //////////
 ECHO %0: START
 :::::::::::::::
-:: Init Lavabo Dev Env Variables
+:: Init Project Dev Env Variables
 CALL _initprojectenv.bat || goto :error
 :::::::::::::::
 
@@ -20,8 +20,8 @@ CALL _initprojectenv.bat || goto :error
 PUSHD "%CD%"
 
 :::::::::::::::
-:: CD To Lavabo Repository Root
-CD %LAVABO_ROOT%
+:: CD To Project Repository Root
+CD %PROJECT_ROOT%
 
 :::::::::::::::
 :: Checking Git Status

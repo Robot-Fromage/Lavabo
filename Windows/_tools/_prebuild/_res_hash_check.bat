@@ -10,7 +10,7 @@ chgcolor %CHEADER%
 ECHO //////////
 ECHO %0: START
 :::::::::::::::
-:: Init Lavabo Dev Env Variables
+:: Init Project Dev Env Variables
 CALL _initprojectenv.bat || goto :error
 :::::::::::::::
 
@@ -26,7 +26,7 @@ GOTO :break1
 :break1
 SET BREAK_PLACEHOLDER_STATEMENT=
 
-DirHash %LAVABO_RESOURCES_DIR% SHA256 -t "%~dp0reschecksum.txt" -overwrite -quiet -nowait -hashnames
+DirHash %PROJECT_RESOURCES_DIR% SHA256 -t "%~dp0reschecksum.txt" -overwrite -quiet -nowait -hashnames
 set "NEW_CHECKSUM="
 for /f "delims=" %%a in ('type "%~dp0reschecksum.txt"') do (
 SET NEW_CHECKSUM=%%a

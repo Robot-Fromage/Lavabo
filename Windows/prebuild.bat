@@ -11,11 +11,11 @@ chgcolor %CHEADER%
 ECHO //////////
 ECHO %0: START
 :::::::::::::::
-:: Init Lavabo Dev Env Variables
+:: Init Project Dev Env Variables
 CALL _initprojectenv.bat || goto :error
 :::::::::::::::
 
-CALL _smart_cp "%LAVABO_ROOT%\resources" "%LAVABO_PROJECT_DIR%\resources"
+CALL _smart_cp "%PROJECT_ROOT%\resources" "%PROJECT_PROJECT_DIR%\resources"
 
 :::::::::::::::
 :: Reaching End of the Script

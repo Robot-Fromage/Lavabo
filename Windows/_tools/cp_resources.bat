@@ -11,7 +11,7 @@ chgcolor %CHEADER%
 ECHO //////////
 ECHO %0: START
 :::::::::::::::
-:: Init Lavabo Dev Env Variables
+:: Init Project Dev Env Variables
 CALL _initprojectenv.bat || goto :error
 :::::::::::::::
 
@@ -40,7 +40,7 @@ chgcolor %CTEXT%
 ECHO old resources at output location were cleaned
 MKDIR "%PREBUILD_OUTDIR%\resources"
 ECHO "%PREBUILD_OUTDIR%\resources"
-XCOPY /e /h /y "%LAVABO_ROOT%\resources" "%PREBUILD_OUTDIR%\resources"
+XCOPY /e /h /y "%PROJECT_ROOT%\resources" "%PREBUILD_OUTDIR%\resources"
 :::::::::::::::
 :: Reaching End of the Script
 GOTO :success

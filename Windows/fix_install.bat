@@ -11,17 +11,17 @@ chgcolor %CHEADER%
 ECHO //////////
 ECHO %0: START
 :::::::::::::::
-:: Init Lavabo Dev Env Variables
+:: Init Project Dev Env Variables
 CALL _initprojectenv.bat || goto :error
 
 :::::::::::::::
-:: Install Lavabo Extlibs Libraries
+:: Install Project Extlibs Libraries
 chgcolor %CTEXT%
 ECHO Installing Extlibs
-CALL "%LAVABO_WIN_TOOLS_PREBUILD_DIR%\_clean_res_hash.bat"
+CALL "%PROJECT_WIN_TOOLS_PREBUILD_DIR%\_clean_res_hash.bat"
 SETLOCAL
-CALL "%LAVABO_WIN_TOOLS_SETUP_DIR%\_install_project.bat" || goto :error
-CALL "%LAVABO_WIN_TOOLS_SETUP_DIR%\_install_ext_res.bat" || goto :error
+CALL "%PROJECT_WIN_TOOLS_SETUP_DIR%\_install_project.bat" || goto :error
+CALL "%PROJECT_WIN_TOOLS_SETUP_DIR%\_install_ext_res.bat" || goto :error
 ENDLOCAL
 
 :::::::::::::::

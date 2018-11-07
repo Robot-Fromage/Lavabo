@@ -11,7 +11,7 @@ chgcolor %CHEADER%
 ECHO //////////
 ECHO %0: START
 :::::::::::::::
-:: Init Lavabo Dev Env Variables
+:: Init Project Dev Env Variables
 CALL _initprojectenv.bat || goto :error
 :::::::::::::::
 
@@ -19,11 +19,11 @@ CALL _initprojectenv.bat || goto :error
 :: Check if Extlibs are installed properly since we are going to install them in the project directories
 chgcolor %CTEXT%
 ECHO Checking install setup before proceeding
-CALL "%SPARK_BUILD_WIN_DIR%\check_install.bat" || goto :error
+CALL "%FUEL_BUILD_WIN_DIR%\check_install.bat" || goto :error
 
 :::::::::::::::
 :: Copy Ext res files
-XCOPY /e /h /y "%SPARK_ROOT%\_install\resources" "%LAVABO_RESOURCES_DIR%"
+XCOPY /e /h /y "%FUEL_ROOT%\_install\resources" "%PROJECT_RESOURCES_DIR%"
 
 GOTO :success
 

@@ -11,19 +11,19 @@ chgcolor %CHEADER%
 ECHO //////////
 ECHO %0: START
 :::::::::::::::
-:: Init Lavabo Dev Env Variables
+:: Init Project Dev Env Variables
 CALL _initprojectenv.bat || goto :error
 :::::::::::::::
 
-CALL "%LAVABO_WIN_TOOLS_PREBUILD_DIR%\_clean_res_hash.bat"
-call:checkRmDir "%LAVABO_WIN_DIR%\Lavabo_Deployed"
-call:checkRmDir "%LAVABO_PROJECT_DIR%\x64"
-call:checkRmDir "%LAVABO_PROJECT_DIR%\.vs"
-call:checkRmDir "%LAVABO_PROJECT_DIR%\GeneratedFiles"
-call:checkRmDir "%LAVABO_PROJECT_DIR%\Lib"
-call:checkRmDir "%LAVABO_PROJECT_DIR%\resources"
+CALL "%PROJECT_WIN_TOOLS_PREBUILD_DIR%\_clean_res_hash.bat"
+call:checkRmDir "%PROJECT_WIN_DIR%\Project_Deployed"
+call:checkRmDir "%PROJECT_PROJECT_DIR%\x64"
+call:checkRmDir "%PROJECT_PROJECT_DIR%\.vs"
+call:checkRmDir "%PROJECT_PROJECT_DIR%\GeneratedFiles"
+call:checkRmDir "%PROJECT_PROJECT_DIR%\Lib"
+call:checkRmDir "%PROJECT_PROJECT_DIR%\resources"
 
-DEL "%LAVABO_PROJECT_DIR%\Lavabo.vcxproj.user"
+DEL "%PROJECT_PROJECT_DIR%\Project.vcxproj.user"
 GOTO :success
 
 :::::::::::::::

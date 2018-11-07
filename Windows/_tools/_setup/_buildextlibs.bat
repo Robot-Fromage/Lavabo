@@ -11,17 +11,18 @@ chgcolor %CHEADER%
 ECHO //////////
 ECHO %0: START
 :::::::::::::::
-:: Init Lavabo Dev Env Variables
+:: Init Project Dev Env Variables
 CALL _initprojectenv.bat || goto :error
 :::::::::::::::
 
 :::::::::::::::
 :: Init repo & Checking changes & warning before issuing git operation
-CALL "%LAVABO_WIN_TOOLS_GIT_DIR%\_initgitsubmodules.bat" || goto :error
+REM OBSOLETE
+REM CALL "%PROJECT_WIN_TOOLS_GIT_DIR%\_initgitsubmodules.bat" || goto :error
 
 :::::::::::::::
 :: Delegate build to Extlibs Scripts
-CALL "%SPARK_BUILD_WIN_DIR%\buildall.bat" || goto :error
+CALL "%FUEL_BUILD_WIN_DIR%\buildall.bat" || goto :error
 
 GOTO :success
 
