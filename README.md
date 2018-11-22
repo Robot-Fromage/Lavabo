@@ -1,5 +1,5 @@
 # Lavabo
-![alt text](https://github.com/Robot-Fromage/Lavabo/blob/master/resources/com/lavabo_100.png "Lavabo")
+![alt text](https://github.com/Robot-Fromage/Lavabo/blob/master/resources/media/com/lavabo_100.png "Lavabo")
 
 Research Application for 2D and 3D image processing and tools.
 
